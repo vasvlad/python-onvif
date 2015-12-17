@@ -38,6 +38,8 @@ if __name__ == '__main__':
     params2.MessageLimit = 1024
     while (1 == 1):
         p2 = p_service.PullMessages(params2)
-        print p2
+#        print p2
+        if (p2.NotificationMessage[0].Message.Message.Data.SimpleItem._Name == "IsMotion"):
+        	print p2.NotificationMessage[0].Message.Message.Data.SimpleItem._Value
 
     
