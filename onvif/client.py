@@ -359,6 +359,9 @@ class ONVIFCamera(object):
     def create_events_service(self, from_template=True):
         return self.create_onvif_service('events', from_template)
 
+    def create_eventspullpoint_service(self, from_template=True):
+        return self.create_onvif_service('eventspullpoint', from_template)
+
     def create_analytics_service(self, from_template=True):
         return self.create_onvif_service('analytics', from_template)
 

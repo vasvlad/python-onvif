@@ -15,6 +15,29 @@ def get_event_srv():
 
 
 if __name__ == '__main__':
-    e_service = get_event_srv()
+
+    mycam = ONVIFCamera('10.0.0.38', 80, 'admin', '7121087') #, no_cache=True)
+    print mycam.devicemgmt.GetServices()
+    e_service = mycam.create_events_service()
+
+
     pp = e_service.GetEventProperties()
+    
     print pp
+
+#    params = e_service.create_type('CreatePullPointSubscription')
+#    params.InitialTerminationTime = "PT600S"
+#    p1 = e_service.CreatePullPointSubscription(params)
+#    print p1
+
+
+
+    p_service = mycam.create_eventspullpoint_service()
+    params2 = e_service.create_type('PullMessages')
+    params2.Timeout = "PT1M"
+    params2.MessageLimit = 1024
+    while (1 == 1):
+        p2 = p_service.PullMessages(params2)
+        print p2
+
+    
