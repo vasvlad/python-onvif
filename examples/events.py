@@ -16,7 +16,7 @@ def get_event_srv():
 
 if __name__ == '__main__':
 
-    mycam = ONVIFCamera('10.0.0.38', 80, 'admin', '7121087') #, no_cache=True)
+    mycam = ONVIFCamera('10.0.0.38', 80, 'admin', 'admin') #, no_cache=True)
     print mycam.devicemgmt.GetServices()
     e_service = mycam.create_events_service()
 
